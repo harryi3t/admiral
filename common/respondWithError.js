@@ -34,8 +34,8 @@ respondWithError.httpStatusMap[ActErr.ShippableAdapter400] = 400;
 respondWithError.httpStatusMap[ActErr.ShippableAdapter500] = 500;
 
 function respondWithError(res, err) {
-  //log the full stack to log file
-  //logger takes care depending on log level set
+  // log the full stack to log file
+  // logger takes care depending on log level set
   __logActError(err);
 
   // Find the deepest linked ActError

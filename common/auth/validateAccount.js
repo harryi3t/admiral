@@ -1,4 +1,5 @@
 'use strict';
+
 var self = validateAccount;
 module.exports = self;
 
@@ -19,10 +20,10 @@ function validateAccount(req, res, next) {
   logger.verbose(bag.who, 'Started');
 
   async.series([
-      _checkInputParams.bind(null, bag),
-      _extractAPIToken.bind(null, bag),
-      _validateLoginToken.bind(null, bag)
-    ],
+    _checkInputParams.bind(null, bag),
+    _extractAPIToken.bind(null, bag),
+    _validateLoginToken.bind(null, bag)
+  ],
     function (err) {
       logger.verbose(bag.who, 'Completed');
       if (err)
@@ -95,4 +96,3 @@ function _validateLoginToken(bag, next) {
 
   return next();
 }
-

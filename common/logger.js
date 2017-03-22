@@ -1,4 +1,5 @@
 'use strict';
+
 var winston = require('winston');
 var WinstonFileTransport = winston.transports.File;
 var WinstonConsoleTransport = winston.transports.Console;
@@ -17,11 +18,10 @@ function configLevel(config) {
   config = config || {};
 
   var logLevel = 'debug';
-  if (config.runMode === 'beta') {
+  if (config.runMode === 'beta')
     logLevel = 'verbose';
-  } else if (config.runMode === 'production') {
+  else if (config.runMode === 'production')
     logLevel = 'warn';
-  }
 
   winston.add(WinstonConsoleTransport, {
     timestamp: true,
@@ -34,7 +34,7 @@ function configLevel(config) {
     timestamp: true,
     colorize: true,
     filename: '/var/run/shippable/logs/api_' + config.runMode + '_out.log',
-    maxsize: 10485760,// maxsize: 10mb
+    maxsize: 10485760, // maxsize: 10mb
     maxFiles: 20,
     level: logLevel,
     json: false
@@ -45,7 +45,7 @@ function configLevel(config) {
     timestamp: true,
     colorize: true,
     filename: '/var/run/shippable/logs/api_' + config.runMode + '_err.log',
-    maxsize: 10485760,// maxsize: 10mb
+    maxsize: 10485760, // maxsize: 10mb
     maxFiles: 20,
     level: 'error',
     json: false
@@ -56,7 +56,7 @@ function configLevel(config) {
     timestamp: true,
     colorize: true,
     filename: '/var/run/shippable/logs/api_' + config.runMode + '_warn.log',
-    maxsize: 5242880,// maxsize: 5mb
+    maxsize: 5242880, // maxsize: 5mb
     maxFiles: 20,
     level: 'warn',
     json: false

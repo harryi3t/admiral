@@ -1,4 +1,5 @@
 'use strict';
+
 var self = sendJSONResponse;
 module.exports = self;
 global.sendJSONResponse = self;
